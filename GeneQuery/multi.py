@@ -78,8 +78,8 @@ def work_process(path, folder_output, threads):
             print('[*] Fastq-dumping <{}>...'.format(path))
             outdir_fastq_dump_tmp = os.path.join(folder_output, 'fastq-dump_tmp')
 
-            cmd_fastq_dump = '/Johnny/predeus/programs/sratoolkit.2.5.7-ubuntu64/bin/fastq-dump --split-3 {} --outdir {}'.format(path, outdir_fastq_dump_tmp)
-            # cmd_fastq_dump = '/Johnny/students2016/kchuharev/rod/parallel-fastq-dump/parallel-fastq-dump --threads {} --split-3 -s {} --outdir {}'.format(threads, path, outdir_fastq_dump_tmp)
+            # cmd_fastq_dump = '/Johnny/predeus/programs/sratoolkit.2.5.7-ubuntu64/bin/fastq-dump --split-3 {} --outdir {}'.format(path, outdir_fastq_dump_tmp)
+            cmd_fastq_dump = '/Molly/sakhabeev/TOOLS/parallel-fastq-dump-master/parallel-fastq-dump --threads {} --split-3 -s {} --outdir {}'.format(threads, path, outdir_fastq_dump_tmp)
 
             with open(outdir_fastq_dump_log, 'w') as f_log:
                 with Popen(cmd_fastq_dump, shell=True, universal_newlines=True, stdout=f_log, stderr=STDOUT) as proc:
